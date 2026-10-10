@@ -1,0 +1,10 @@
+<% if @roster.errors.any? %>
+  <% @roster.errors.full_messages.each do |msg| %>
+    <p><%= msg %> </p>
+  <%end%>
+<% end %>
+<%= form_with model: @roster do |form| %>
+  <%= form.label :name, "Roster Name" %>
+  <%= form.text_field :name %>
+  <%= form.submit "Submit" %>
+<% end %>

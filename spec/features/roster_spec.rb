@@ -6,7 +6,7 @@ RSpec.feature "Create a Roster Name" do
 
     fill_in "Roster Name", with: "CSELR25"
 
-    click "Submit"
+    click_button "Submit"
 
     expect(page).to have_content("CSELR25")
   end
