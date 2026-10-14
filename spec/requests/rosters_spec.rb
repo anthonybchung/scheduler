@@ -35,5 +35,13 @@ RSpec.describe "Rosters", type: :request do
         expect(response.body).to include("Name can NOT be blank")
       end
     end
+
+    context "receives a good name and redirects to the show page" do
+      it "gets redirected to latest entry" do
+        post rosters_path, params: {roster: {name: "CSELR2026"}}
+        roster = Roster.find_by!(name: "CSELR2026")
+        expect(response).to redirect_to(roster_path(roster))
+      end
+    end
   end
 end

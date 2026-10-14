@@ -13,7 +13,9 @@ class RostersController < ApplicationController
     end
   end
 
-
+  def show
+    @roster = Roster.find(params[:id])
+  end
   private
 
   def roster_params
